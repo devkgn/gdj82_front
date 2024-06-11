@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 심화 수업</title>
+</head>
+<body>
+    <!-- 색 선택 : color (기본값 : hex) -->
+    <label for="backCol">배경색</label>
+    <input type="color" id="backCol" name="backCol" value="#fcba03">
+    <label for="fontCol">글꼴색</label>
+    <input type="color" id="fontCol" name="fontCol" value="#52504c"><br>
+    <!-- 숫자 데이터 : number, range -->
+    <form>
+        <!-- 제출할때 유효한 숫자 정보만 입력되도록 규제 -->
+        <input type="number" name="user_number" min="0" max="10" step="2">
+        <input type="range" name="user_range" min="0" max="10" step="2">
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
