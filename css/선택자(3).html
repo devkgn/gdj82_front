@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자</title>
+</head>
+<body>
+    <h1>속성 선택자</h1>
+    <style>
+        input[type="text"]{
+            background-color: blueviolet;
+        }
+        #user_id{
+            color: yellow;
+        }
+    </style>
+    <h2>표시 : 선택자[속성="속성값"]</h2>
+    <form>
+        <label for="user_id">아이디 : </label>
+        <input type="text" id="user_id"><br>
+        <label for="user_pw">비밀번호 : </label>
+        <input type="password" id="user_pw">
+    </form>
+</body>
+</html>
