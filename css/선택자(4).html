@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후손, 자손 선택자</title>
+</head>
+<body>
+    <style>
+        .container>h1{background-color: aquamarine;}
+        .container h1{color: orange;}
+        /* class가 container인 태그의 자손 중에서 
+        div 의 자손 중에서 ul의 자손 중에서 li의 자손중에 a */
+        .container>div>ul>li>a{
+            color: brown;
+        }
+        /* class가 container인 태그의 후손 중에 
+        a태그의 href속성이 CSS기초.html인 요소 */
+        .container a[href="CSS기초.html"]{
+            background-color: cornflowerblue;
+        }
+    </style>
+    <div class="container">
+        <h1>첫째</h1>
+        <p class="content">
+            둘째
+        </p>
+        <div>
+            <h1>셋째의 첫째 자식</h1>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>
+                    <a href="CSS기초.html">CSS기초 이동</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
