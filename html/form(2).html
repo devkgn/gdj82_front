@@ -21,7 +21,86 @@
     <!-- textarea : 여러줄의 문장 입력 -->
     <textarea name="user_textarea" id="user_textarea"
     cols="20" rows="10" style="resize:none;">
-
     </textarea>
+    <h2>납품 대장</h2>
+    <form method="post" name="supplyFrm" action="#">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <label for="supply_name">1. 납품자명 : </label>
+            <input type="text" id="supply_name"
+            name="supply_name" placeholder="name">
+            <br>
+            <label for="email">2. email :</label>
+            <input type="email" id="email"
+            name="email" placeholder="hkd@naver.com">
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="product_name">상품명 : </label>
+                    <input type="text" id="product_name" name="product_name">
+                </li>
+                <li>
+                    <label for="product_num">납품수량</label>
+                    <input type="number" placeholder="최소 100" min="100"
+                    id="product_num" name="product_num">
+                </li>
+                <li>
+                    <label for="product_level">납품 등급 : </label>
+                    <input type="range" id="product_level"
+                    name="product_level" value="5" min="1" max="10">
+                </li>
+                <li>    
+                    <label for="product_etc">기타사항 : </label>
+                    <textarea name="product_etc" id="product_etc"
+                    style="resize: none;"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="send message">
+    </form>
+    <!-- 날짜 정보 -->
+    <input type="date" name="trip_start" id="trip_start"
+    value="2024-06-12" min="2024-04-17" max="2024-10-18">
+    <input type="datetime-local" id="metting_time"
+    name="metting_time" value="2024-06-12T10:43"
+    min="2024-06-12T09:00" max="2024-06-12T17:50">
+    <input type="month" id="start" name="start"
+    value="2023-10">
+    <input type="week" id="camp_week" name="camp_week"
+    value="2024-W19">
+    <input type="time" id="now" name="now"
+    value="17:10"><br>
+    <!-- checkbox와 radio : 여러 선택지 중에서 일부 선택 -->
+    <!-- checkbox : 여러개 선택 -->
+    <input type="checkbox" id="jja" name="lunch" value="1" checked>
+    <label for="jja">짜장면</label>
+    <input type="checkbox" id="tang" name="lunch" value="2">
+    <label for="tang">탕수육</label>
+    <!-- radio : 하나만 선택 -->
+    <input type="radio" id="seoul" name="addr" checked="checked">
+    <label for="seoul">서울</label>
+    <input type="radio" id="incheon" name="addr">
+    <label for="incheon">인천</label>
+    <!-- select :  여러 선택지 중에서 일부 선택-->
+    <select id="user_select" name="user_select" size="3" multiple>
+        <option value="0">선택하기</option>
+        <option value="1">다이제</option>
+        <option value="2">바나나킥</option>
+        <option value="3">콘치</option>
+    </select>
+    <!-- progress : 진행 상황 -->
+    <progress value="7" max="10"></progress>
+    <!-- button : input type submit과 동일 -->
+    <form method="get" name="testFrm" action="#">
+        <input type="text" required><br>
+        <button>버튼1</button>
+        <button type="button">버튼2</button>
+        <button type="submit">버튼3</button>
+        <button type="reset">버튼4</button>
+    </form>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
 </body>
 </html>
