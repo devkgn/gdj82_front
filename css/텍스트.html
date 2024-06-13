@@ -37,8 +37,50 @@
     <p>Lorem 
         <span class="bold_font">ipsum</span> 
     dolor sit amet</p>
-
-
+    <h1>문자의 색 변경</h1>
+    <style>
+        .colorful{
+            /* color: rgb(224, 201, 188); */
+            color: rgba(246, 72, 28, 0.785);
+        }
+    </style>
+    <p class="colorful">알록달록</p>
+    <h1>단어, 문장에 스타일 추가</h1>
+    <style>
+        /* class가 deco_container인 태그의 자손 중에서
+        id가 under인 태그 -> 밑줄(underline) 
+        id가 over인 태그 -> 윗줄(overline)
+        id가 through인태그 -> 취소선(line-through)*/
+        .deco_container > #under{text-decoration: underline;}
+        .deco_container > #over{text-decoration: overline;}
+        .deco_container > #through{text-decoration: line-through;}
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    <div class="deco_container">
+        <span id="over">Lorem ipsum dolor sit amet</span>
+        <span id="under">Lorem ipsum dolor sit amet</span>
+        <span id="through">Lorem ipsum dolor sit amet</span>
+    </div>
+    <a href="https://www.naver.com">네이버</a>
+    <h1>문자 간격 조정</h1>
+    <h3>Lorem ipsum dolor sit amet</h3>
+    <h3 style="letter-spacing:10px">Lorem ipsum dolor sit amet</h3>
+    <h3 style="word-spacing: 30px;">Lorem ipsum dolor sit amet</h3>
+    <h1>문단 정렬</h1>
+    <style>
+        .borderdP{border: 5px dotted salmon;}
+        .w{text-align: left;}
+        .x{text-align: right;}
+        .y{text-align: center;}
+        .z{text-align: justify;}
+    </style>
+    <p class="borderdP w">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="borderdP x">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="borderdP y">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="borderdP z">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 
 
