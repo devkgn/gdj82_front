@@ -22,5 +22,71 @@
     <div class="container resize">
         상대크기
     </div>
+    <h1>블록, 인라인 요소</h1>
+    <style>
+        .container > span{
+            display: block;
+            width: 300px; height: 200px;
+            border: 2px solid green;
+        }
+        .container > h3{
+            display: inline-block;
+            width: 300px; height: 200px;
+            border: 4px dotted blueviolet;
+        }
+        .container > img{display: none;}
+    </style>
+    <button id="showHide">나타났다 사라졌다</button>
+    <script>
+        document.getElementById('showHide').onclick = function(){
+            document.getElementById('showImg').style.display = 'inline-block';
+        }
+    </script>
+    <div class="container">
+        <!-- img : inline-block 속성 -->
+        <img src="../resources/kong.jpg" alt="콩나물 무침">
+        <img id="showImg" src="../resources/kong.jpg" alt="콩나물 무침">
+        <img src="../resources/kong.jpg" alt="콩나물 무침">
+        <img src="../resources/kong.jpg" alt="콩나물 무침">
+        <span>inline 속성 최고</span>
+        <span>inline 속성 최고</span>
+        <span>inline 속성 최고</span>
+    </div>
+    <div class="container">
+        <h3>block 요소가 최고야~!</h3>
+        <h3>block 요소가 최고야~!</h3>
+        <h3>block 요소가 최고야~!</h3>
+        <h3>block 요소가 최고야~!</h3>
+        <h3>block 요소가 최고야~!</h3>
+    </div>
+    <style>
+        .container *{border : 2px double dodgerblue;}
+        .pad{
+            /* padding: 50px; */
+            /* padding: 100px 50px; */
+            /* padding: 30px 10px 50px 4px; */
+            padding-top: 30px;
+        }
+        .mar{
+            /* margin: 100px; */
+            /* margin: 100px 50px; */
+            /* margin: 30px 20px 5px 40px; */
+            margin-right: 10px;
+        }
+    </style>
+    <div class="container pad mar">
+        <div>
+            <h2 style="margin: 0;">margin이란 무엇일까요? </h2>
+            <p>padding은.....?</p>
+            <h2>여백없다!!</h2>
+        </div>
+    </div>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
