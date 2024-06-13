@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 스타일</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>글꼴을 설정하는 방법</h1>
+    <style>
+        .basicFont{font-family:'궁서';}
+        .webFont{font-family: "Single Day", cursive;}
+    </style>
+    <p class="basicFont">나는 진지하다</p>
+    <p class="webFont">나는 트렌디하다</p>
+    <h1>글자 크기</h1>
+    <style>
+        div#sizeContainer{font-size: 40px;}
+        div#sizeContainer > p:first-child {font-size: 0.5em;}
+        div#sizeContainer > p:last-child{font-size: 0.5rem;}
+        /* html{font-size: 80px;} */
+        .bold_font{font-weight: bold;}
+    </style>
+    <div id="sizeContainer">
+        <p>em : 부모 기준</p>
+        <p>rem : 최상위(루트) 기준 </p>
+    </div>
+    <h1>문자의 굵기 변경</h1>
+    <p style="font-weight: normal;">normal한 애</p>
+    <p style="font-weight: bold;">bold한 애</p>
+    <p style="font-weight: bolder;">bolder한 애</p>
+    <p style="font-weight: lighter;">lighter한 애</p>
+    <p style="font-weight: 700;">섬세한 애</p>
+    <p>Lorem 
+        <span class="bold_font">ipsum</span> 
+    dolor sit amet</p>
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

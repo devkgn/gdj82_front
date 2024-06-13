@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부정 선택자</title>
+    <style>
+        /* id가 container인 div 요소의 자손 중에서
+        class가 n인 요소들의 배경색을 aqua로 변경
+        (태그명이 span인 요소 제외) */
+        div#container>.n:not(span){
+            background-color: aqua;
+        }
+        /* p.n, div.n{
+            background-color: aquamarine;
+        } */
+        /* id가 container인 div 요소의 자손 중에서
+         p가 아닌 요소 에 글자색 crimson */
+        div#container > :not(p){
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p>Lorem ipsum dolor sit amet</p>
+        <p class="n">Lorem ipsum dolor sit amet</p>
+        <span class="n">Lorem ipsum dolor sit amet</span>
+        <div class="n">Lorem ipsum dolor sit amet</div>
+    </div>
+    <h1>CSS 적용 우선순위</h1>
+    <style>
+        #a{color: red;}
+        .b{color: blue;}
+        p{color: purple !important;}
+    </style>
+    <p style="color:green;" id="a" class="b">글자색을 바꿔줘!</p>
+</body>
+</html>
