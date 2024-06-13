@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응 선택자</title>
+    <style>
+        /* id가 reaction인 div의 자손중에
+        id가 p1인 p가 클릭되었을 때 배경색을 magenta로 변경 */
+        div#reaction > p#p1:active{
+            background-color: magenta;
+        }
+        /* id가 reaction인 div의 자손중에서
+        id가 p2인 p에 마우스 포인터가 올라가면 글자색 hotpink로 변경 */
+        div#reaction > p#p2:hover{
+            color: hotpink;
+        }
+    </style>
+</head>
+<body>
+        <div id="reaction">
+            <p id="p1">나를 클릭하면 배경색이 바껴!</p>
+            <p id="p2">나한테 마우스 포인터를 올리면 글자색이 바껴!</p>
+        </div>
+</body>
+</html>
