@@ -34,7 +34,16 @@
     <button id="btn2" type="button">2번 버튼</button>
     <h1>상태 선택자</h1>
     <style>
-        
+        /* div중에서 id가 condition인 태그의 자손
+        name이 user_id인 input에 초점이 맞춰진 경우 배경색 추가 */
+        div#condition > input[name="user_id"]:focus{
+            background-color: darkorange;
+        }
+        /* div중에서 id가 condition인 태그의 자손
+        type이 text인 input이 사용 불가능한 상태일 경우 배경색 추가 */
+        div#condition > input[type="text"]:disabled{
+            background-color: crimson;
+        }
     </style>
     <div id="condition">
         <label for="user_id">아이디</label>
