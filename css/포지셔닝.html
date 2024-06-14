@@ -46,5 +46,39 @@
     </style>
     <img id="fly" src="../resources/kong.jpg" alt="콩나물 무침"
     width="200px" height="200px">
+
+    <style>
+        #userId_validate{visibility: hidden;}
+    </style>
+    <div id="enrollPage">
+        <h2>아이디 중복 확인</h2>
+        <form method="get" action="#" name="idFrm">
+            <label for="userId">아이디 : </label>
+            <input type="text" name="userId" id="userId"><br>
+            <span id="userId_validate">
+                잘못된 아이디입니다.
+            </span>
+        </form>
+    </div>
+    <p>다른 요소</p>
+    <script>
+        document.getElementById('userId').onkeyup = function(){
+            if(document.getElementById('userId').value == 'user01' ){
+                document.getElementById('userId_validate').style.visibility = 'visible';
+            } else{
+                document.getElementById('userId_validate').style.visibility = 'hidden';
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
