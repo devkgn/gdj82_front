@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지셔닝</title>
+    <style>
+        .parent{
+            border: 1px solid blue; margin: 100px;
+            width: 800px; height: 800px;
+        }
+        .relative_child{
+            border: 2px solid green;
+            width: 80px; height: 200px;
+            position: relative;
+            top: 140px; left: 50px;
+        }
+        .absolute_child_1{
+            border: 2px dashed darkorange;
+            width: 200px; height: 200px;
+            position: absolute; top: 180px; left: 50px;
+        }
+        .absolute_child_2{
+            border: 2px double purple;
+            width: 100px; height: 100px;
+            position: absolute; top: 200px; left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="relative_child">
+            relative한 요소
+            <div class="absolute_child_1">
+                부모가 static하지 않은 absolute
+            </div>
+        </div>
+        <div class="absolute_child_2">
+            부모가 static한 absolute
+        </div>
+    </div>
+    <style>
+        #fly{
+            position: fixed; top: 200px; left: 500px;
+        }
+    </style>
+    <img id="fly" src="../resources/kong.jpg" alt="콩나물 무침"
+    width="200px" height="200px">
+</body>
+</html>
