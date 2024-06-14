@@ -105,8 +105,9 @@
             width: 600px; height: 400px;
         }
         .float_container > div{width: 100px; height: 100px;}
-        .left{border: 2px dashed violet; float: left;
-        text-align: center;}
+        .left{
+            border: 2px dashed violet; 
+            float: left; text-align: center;}
         .right{border :4px double dodgerblue;float: right;}
     </style>
     <div class="float_container">
@@ -115,8 +116,20 @@
         <div class="right">1. right</div>
         <div class="right">2. right</div>
     </div>
-
-
+    <style>
+        .clear_container > div{float: left;}
+        .clear_container{clear: left;}
+    </style>
+    <div class="clear_container">
+        <div>빼빼로1</div>
+        <div>빼빼로2</div>
+        <div>빼빼로3</div>
+    </div>
+    <div class="clear_container">
+        <div>빼빼로1</div>
+        <div>빼빼로2</div>
+        <div>빼빼로3</div>
+    </div>
 
 
 

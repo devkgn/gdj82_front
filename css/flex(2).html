@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배치 방향 설정</title>
+    <style>
+        .container{
+            background-color: lightblue;
+            width: 600px; height: 200px;
+            display: flex;
+        }
+        .item{
+            background-color: lightpink;
+            height: 80px; margin: 10px;
+        }
+        #row_container{flex-direction: row;}
+    </style>
+</head>
+<body>
+    <h2>flex-direction : row;</h2>
+    <div class="container" id="row_container">
+        <div class="item">1.자식</div>
+        <div class="item">2.자식</div>
+        <div class="item">3.자식</div>
+    </div>
+    <h2>row-reverse</h2>
+    <div class="container" style="flex-direction: row-reverse;">
+        <div class="item">1.자식</div>
+        <div class="item">2.자식</div>
+        <div class="item">3.자식</div>
+    </div>
+    <h2>column</h2>
+    <div class="container" style="flex-direction: column;">
+        <div class="item">1.자식</div>
+        <div class="item">2.자식</div>
+        <div class="item">3.자식</div>
+    </div>
+    <h2>column-reverse</h2>
+    <div class="container" style="flex-direction: column-reverse;">
+        <div class="item">1.자식</div>
+        <div class="item">2.자식</div>
+        <div class="item">3.자식</div>
+    </div>
+</body>
+</html>
