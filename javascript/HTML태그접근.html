@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML태그접근</title>
+</head>
+<body>
+    <input type="text" id="user_id"
+    class="user_info">
+    <h1>document.getElementById();</h1>
+    <style>
+        #idTarget{
+            border: 2px dotted darkorange;
+        }
+    </style>
+    <div id="idTarget">
+        id 기준 접근1
+    </div>
+    <div id="idTarget">
+        id 기준 접근2
+    </div>
+    <input type="button" value="빨갛게" 
+    onclick="turnRed();">
+    <script>
+        function turnRed(){
+            var test = document.getElementById('idTarget');
+            test.style.color = 'red';
+        }
+    </script>
+    <h1>getElementsByClassName();</h1>
+    <p class="a">p1</p>
+    <span class="b a">span1</span>
+    <p class="c">p2</p>
+    <div class="a b c">div1</div>
+    <input type="button" value="a클래스" onclick="changeOnly();">
+    <!-- 버튼 생성 : b클래스 -->
+    <!-- 버튼 클릭하면 클래스가 b인 요소들의
+    배경색을 blue로 변경-->
+    <input type="button" value="b클래스" onclick="changeBlue();">
+    <script>
+        function changeBlue(){
+            var els = document.getElementsByClassName('b');
+            for(var i = 0 ; i < els.length ; i++){
+                els[i].style.backgroundColor = 'blue';
+            }
+        }
+        function changeOnly(){
+            var el = document.getElementsByClassName('a');
+            console.log(el);
+            console.log(el[0]);
+            // el[0].style.color = 'hotpink';
+            for(var i = 0 ; i < el.length ; i++){
+                el[i].style.color = 'yellow';
+            }
+        }
+    </script>
+    <h1>getElementsByTagName();</h1>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <button type="button" onclick="changeJSblue();">
+        JS좋아
+    </button>
+    <script>
+        function changeJSblue(){
+            var tagEl = document.getElementsByTagName('li');
+            tagEl[2].style.color = 'blue';
+            for(var i = 0 ; i < tagEl.length ; i++){
+                console.log(tagEl[i]);
+            }
+        }
+    </script>
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
