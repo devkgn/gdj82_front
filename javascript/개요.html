@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본형식</title>
+</head>
+<body>
+    <h1>인라인 방식</h1>
+    <button type="button" onclick="alert('alert는 알람!');">
+        내장 함수
+    </button>
+    <button type="button" onclick="inlineFunc();">
+        사용자 정의 함수
+    </button>
+    <script>
+        // Hello JavaScript라는 문구를 alert창에 출력하는 함수
+        /* 블록 주석 */
+        function inlineFunc(){
+            alert('Hello JavaScript');
+        }
+    </script>
+    <h1>인터널 방식</h1>
+    <button type="button" id="internal_btn">
+        인터널 테스트
+    </button>
+    <script>
+        document.getElementById('internal_btn').onclick = function(){
+            alert('인터널 방식이에요.');
+        }
+    </script>
+    <h1>external 방식</h1>
+    <button type="button" id="external_btn">
+        익스터널 버튼
+    </button>
+    <script src="sample.js"></script>
+    <h1>데이터 출력</h1>
+    <button onclick="printConsole();">콘솔로그</button>
+    <script>
+        function printConsole(){
+            // 개발자 도구의 콘솔 패널에 Hello World 출력
+            console.log('Hello World');
+        }
+    </script>
+    <!-- 1. 화면에 ‘나의 이름은?’이라는 글자를 가지고 있는 
+    버튼을 생성하세요.
+    2. 버튼을 클릭하면 브라우저 개발자 도구 콘솔 패널에
+    본인의 이름이 출력되도록 구성하세요. -->
+    <!-- <button onclick="printMyName();"> -->
+    <button id="print_name_btn">
+        나의 이름?
+    </button>
+    <script>
+        document.getElementById('print_name_btn').onclick=function(){
+            console.log('김철수');
+        }
+        function printMyName(){
+            console.log('김철수');
+        }
+    </script>
+    <button onclick="printAlert();">
+        얼럿
+    </button>
+    <script>
+        function printAlert(){
+            alert(123456);
+        }
+    </script>
+    <br>
+    <button onclick="printPrompt();">
+        프롬프트
+    </button>
+    <script>
+        function printPrompt(){
+            // var name = prompt('이름을 입력하세요','김철수');
+            // console.log(name);
+            console.log(prompt('이름을 입력하세요.'));
+        }
+    </script>
+    <!-- ‘위치’라는 글자를 가지고 있는 버튼을 생성하세요. -->
+    <!-- 버튼을 클릭하면 ‘어디에 있으세요?’라는 메시지를 가지고 있는 입력창을 띄우세요. -->
+    <!-- 사용자로부터 입력창에 작성한 문자를 받아서 개발자 도구 콘솔 패널에 출력하세요. -->
+    <button onclick="console.log(prompt('어디에 있으세요?','구디'));">
+        위치
+    </button>
+    <script>
+        function whereAreYou(){
+            var positionInfo = prompt('어디에 있으세요?');
+            console.log(positionInfo);
+        }
+    </script>
+    <button onclick="printConfirm();">
+        컨펌
+    </button>
+    <script>
+        function printConfirm(){
+            var yesOrNo = confirm('당신은 로봇입니까?');
+            console.log(yesOrNo);
+            if(confirm('삭제하시겠습니까?')){
+                console.log('삭제');
+            }
+        }
+    </script>
+    <!-- 웹 페이지에 ‘일요일’이라는 문자를 가지는 버튼을 생성하세요. -->
+    <input type="button" value="일요일" onclick="yorisa();">
+    <!-- ‘일요일’버튼을 클릭하면 ‘오늘은 일요일인가요?’라는 질문을 출력하고, 
+    질문에 대한 답을 true혹은 false로 전달받으세요. -->
+    <!-- 전달받은 값을 콘솔 패널에 출력하세요. -->
+    <script>
+        function yorisa(){
+            var sunday = confirm('오늘은 일요일인가요?');
+            // console.log(sunday);
+            if(sunday){
+                console.log('월요일이에요 ㅠㅠ 일요일 아님');
+            }else{
+                console.log('맞아요... 지금은 평일...');
+            }
+        }
+    </script>
+    <input type="button" value="제목 출력" onclick="printWrite();">
+    <script>
+        function printWrite(){
+            //document.write('<h1>제목</h1>');
+            // document.write('Lipsum');
+            document.write('<h1>제목은 역시 h1</h1>');
+        }
+    </script>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
