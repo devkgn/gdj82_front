@@ -17,9 +17,9 @@
     <div id="idTarget">
         id 기준 접근1
     </div>
-    <div id="idTarget">
+    <!-- <div id="idTarget">
         id 기준 접근2
-    </div>
+    </div> -->
     <input type="button" value="빨갛게" 
     onclick="turnRed();">
     <script>
@@ -73,6 +73,88 @@
             }
         }
     </script>
+    <h1>getElementsByName</h1>
+    <label>
+        <input type="checkbox" name="food" value="1">짜장면
+    </label><br>
+    <label>
+        <input type="checkbox" name="food" value="2">짬뽕
+    </label><br>
+    <label>
+        <input type="checkbox" name="food" value="3">탕수육
+    </label>
+    <button onclick="addService();">
+        탕수육 서비스
+    </button>
+    <script>
+        function addService(){
+            var nameEl = document.getElementsByName('food');
+            nameEl[2].checked = true;
+        }
+    </script>
+    <h1>querySelector, querySelectorAll</h1>
+    <button onclick="practiceQuery();">
+        유일한 요소
+    </button>
+    <script>
+        function practiceQuery(){
+            var one = document.querySelector('#idTarget');
+            one.style.color = 'orange';
+            // var two = document.querySelector('.a');
+            // console.log(two);
+            var three = document.querySelectorAll('.a');
+            console.log(three);
+            for(var i = 0 ; i < three.length ; i++){
+                three[i].style.color = 'red';
+            }
+        }
+    </script>
+    <h1>value : 값 가져오고, 바꾸기</h1>
+    <input type="text" id="user_name" 
+    value="김철수">
+    <input type="button" value="값 가져오기" 
+    onclick="getValue();">
+    <input type="button" value="값 변경하기"
+    onclick="setValue();">
+    <script>
+        function setValue(){
+            var userEle = document.getElementById('user_name');
+            userEle.value = '이영희';
+            //document.getElementById('user_name').value = '이영희';
+        }
+        function getValue(){
+            var userName = document.getElementById('user_name');
+            var userNameVal = userName.value;
+            alert(userNameVal);
+        }
+    </script>
+    <h1>style : 값 가져오고, 바꾸기</h1>
+    <input type="button" value="스타일" onclick="changeStyle();"
+    id="style_btn">
+    <style>
+        input[type="button"]{
+            background-color: cornflowerblue;
+        }
+    </style>
+    <script>
+        function changeStyle(){
+            var styleEle = document.getElementById('user_name');
+            styleEle.style.backgroundColor = 'gold';
+            // 가져오기(inline)
+            var styleEleBack = styleEle.style.backgroundColor;
+            console.log(styleEleBack);
+            var basicStyle = document.getElementById('style_btn');
+        }
+    </script>
+
+
+
+
+
+
+
+
+
 
 
 
