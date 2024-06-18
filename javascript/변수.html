@@ -6,7 +6,7 @@
     <title>변수</title>
 </head>
 <body>
-    <script>
+    <!-- <script>
         // 변수 선언
         var test;
         // 변수 할당
@@ -51,8 +51,105 @@
         console.log(testLet);
         const testConst='const 1회';
         console.log(testConst);
-        testConst = 'const 2회';
+        //testConst = 'const 2회';
         console.log(testConst);
+    </script> -->
+    <h1 onclick="variableType();">변수의 자료형</h1>
+    <script>
+        function variableType(){
+            console.log("=== 다양한 변수 타입 ===");
+            let greeting = 'Hello World';
+            let name = "Maria";
+            let price = 19.99;
+            let age = 100;
+            let isStudent = true;
+            alert( typeof(greeting)+": "+greeting 
+                +'\n'+ typeof(name) + ': '+name
+                +'\n'+typeof(price) + ': '+price
+                +'\n'+typeof(age)+":"+age
+                +'\n'+typeof(isStudent)+":"+isStudent
+            );
+            let person = {
+                name : 'Maria',
+                age : 100,
+                isStudent : false,
+                greet : function(){
+                    console.log('Hi, my name is '+this.name);
+                }
+            };
+            person['greet']();
+            function add(a,b){
+                return a+b;
+            }
+            let sum = add(5,3);
+            console.log(typeof(add)+":"+sum);
+        }
     </script>
+    <h1>falsy</h1>
+    <button onclick="falsyTest();">
+        falsy 조회
+    </button>
+    <script>
+        function falsyTest(){
+            if(!0){
+                console.log('0 is falsy');
+            }
+            if(!""){
+                console.log('비어있는 문자열도 falsy');
+            }
+            if(!null) console.log("null도 falsy");
+            if(!undefined) console.log('undefined is falsy');
+            if(!NaN) console.log('Not A Number is falsy');
+        }
+    </script>
+    <h1>형변환</h1>
+    <button onclick="stringPlusNumber();">
+        문자+숫자
+    </button>
+    <script>
+        function stringPlusNumber(){
+            let num1 = 100;
+            let num2 = '100';
+            console.log("num1 : "+typeof(num1));
+            console.log('num2 : '+typeof(num2));
+            console.log(num1 == num2);
+            console.log(num1 * num2);
+            console.log(num1 + num2);
+        }
+    </script>
+    <h1>강제 형변환</h1>
+    <input type="number" id="num_test">
+    <button onclick="inputTest();">
+        숫자 더하기
+    </button>
+    <script>
+        function inputTest(){
+            let num = document.getElementById('num_test').value;
+            // if(!num){
+            //     alert("숫자 정보를 입력하세요.");
+            // }else{
+            //     num = Number(num);
+            //     console.log(num+num);
+            //     console.log(typeof(num));
+            // }
+            let change1 = !num ? 0 : Number(num);
+            let change2 = parseInt(num);
+            let change3 = toString(change2);
+            console.log(typeof(change3));
+            change3 = toString(undefined);
+            console.log(change3);
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
