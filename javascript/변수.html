@@ -138,14 +138,35 @@
             console.log(typeof(change3));
             change3 = toString(undefined);
             console.log(change3);
-
         }
     </script>
-
-
-
-
-
+    <h1>연습문제</h1>
+    <style>
+        input[type="number"]{
+            display: block;
+        }
+    </style>
+    <label for="first">첫번째 수 : </label>
+    <input type="number" id="first">
+    <label for="second">두번째 수 : </label>
+    <input type="number" id="second">
+    <input type="button" value="더하기" onclick="calcPlus();">
+    <script>
+        function calcPlus(){
+            let firstEle = document.getElementById('first').value;
+            let secondEle = document.getElementById('second').value;
+            if(!firstEle && !secondEle){
+                alert('두개의 숫자를 모두 입력하세요.');
+            } else{
+                firstEle = Number(firstEle);
+                secondEle = Number(secondEle);
+                alert('첫번째 수 : '+firstEle
+                    +'\n'+"두번째 수 : "+secondEle
+                    +'\n'+'두 수의 합 : '+(firstEle+secondEle)
+                );
+            }
+        }
+    </script>
 
 
 
