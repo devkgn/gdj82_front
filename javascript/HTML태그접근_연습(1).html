@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML태그 접근 연습 1</title>
+    <style>
+        .palette{
+            width: 100px; height: 100px; background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>문제1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어보세요.</h1>
+    <input type="color" id="color">
+    <input type="button" value="변경" onclick="colorChange();"><br><br>
+    <div class="palette"></div>
+    <script>
+        function colorChange(){
+            let color = document.getElementById('color').value;
+            // console.log(color);
+            let els = document.getElementsByClassName('palette');
+            // console.log(els[0]);
+            els[0].style.backgroundColor = color;
+        }
+    </script>
+    <h1>문제2. 버튼에 따른 크기 조절이 가능하도록 만들어보세요.</h1>
+    <input type="button" value="50x50" onclick="changeSize(50);">
+    <input type="button" value="100x100" onclick="changeSize(100);">
+    <input type="button" value="200x200" onclick="changeSize(200);"><br><br>
+    <div class="palette"></div>
+    <script>
+        function changeSize(size){
+            let els = document.getElementsByClassName('palette');
+            els[1].style.width = size+'px';
+            els[1].style.height = size+'px';
+        }
+        function changeSize50(){
+            console.log(1);
+            let els = document.getElementsByClassName('palette');
+            console.log(els[1]);
+            els[1].style.width = '50px';
+            els[1].style.height = '50px';
+        } 
+        function changeSize100(){
+            let els = document.getElementsByClassName('palette');
+            console.log(els[1]);
+            els[1].style.width = '100px';
+            els[1].style.height = '100px';
+        }
+        function changeSize200(){
+            let els = document.getElementsByClassName('palette');
+            console.log(els[1]);
+            els[1].style.width = '200px';
+            els[1].style.height = '200px';
+        }
+    </script>
+</body>
+</html>
