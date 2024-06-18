@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+    <script>
+        // 변수 선언
+        var test;
+        // 변수 할당
+        test = 'JavaScript';
+        // 변수 선언, 할당 동시
+        var test1 = 'JS';
+        // 변수의 유효범위
+        var a = '전역변수';
+        function scopeBasic(){
+            var b = '지역변수';
+            console.log(b);
+        }
+        // 1. 지역변수로 선언한 변수를 함수 밖에서 호출
+        console.log(b);
+        // 2. 동일한 이름의 변수를 전역변수로도, 지역변수로도 선언
+        var b = '전역변수';
+        console.log(b);
+        // 3. for문
+        console.log('for문 밖(1) : '+i);
+        for(var i = 0 ; i < 4 ; i++){
+            console.log('for문 안 : '+i);
+        }
+        console.log('for문 밖(2) : '+i);
+        // 함수 레벨 스코프 vs 블록 레벨 스코프
+        console.log('=== 함수 레벨 스코프 ===');
+        var x = 200;
+        for(var x = 0 ; x < 10 ; x++){
+            console.log('안 : '+x);
+        }
+        console.log('밖 : '+x);
+        console.log('=== 블록 레벨 스코프 ===');
+        let y = 200;
+        for(let y = 0 ; y < 10 ; y++){
+            console.log('안 : '+y);
+        }
+        console.log('밖 : '+y);
+        console.log('=== let과 const ===');
+        let testLet;
+        testLet = 'let 1회';
+        console.log(testLet);
+        testLet = 'let 2회';
+        console.log(testLet);
+        const testConst='const 1회';
+        console.log(testConst);
+        testConst = 'const 2회';
+        console.log(testConst);
+    </script>
+</body>
+</html>
