@@ -19,5 +19,54 @@
             console.log(num);
         }
     </script>
+    <h1>부호 뒤집기</h1>
+    <input type="number" id="push_input">
+    <input type="button" id="push_btn" value="입력"
+    onclick="alertNum();">
+    <script>
+        function alertNum(){
+            let num = document.getElementById('push_input').value;
+            if(!num){
+                alert('부호 뒤집기를 수행할 숫자를 입력하세요.');
+            }else{
+                if(typeof(num) == 'string'){
+                    num = Number(num);
+                }
+                alert(-num);
+            }
+        }
+    </script>
+    <h1>논리 부정 연산자</h1>
+    <button onclick="sayNo();">
+        !
+    </button>
+    <script>
+        function sayNo(){
+            let yes = true;
+            yes = !yes;
+            console.log(yes);
+        }
+    </script>
+    <h1>증감 연산자</h1>
+    <button onclick="addTest();">
+        전위,후위 연산자
+    </button>
+    <script>
+        function addTest(){
+            let a = 2, b = 0;
+            // 전위 연산
+            // b = ++a;
+            // 1. a = a+1;
+            // 2. b = a;
+
+            // 후위 연산
+            b = a++;
+            // 1. b = a;
+            // 2. a = a+1;
+            alert("a : "+a+"\nb : "+b);
+        }
+    </script>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
