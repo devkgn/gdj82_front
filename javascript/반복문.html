@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+<body>
+    <h1>for문</h1>
+    <input type="button" value="반복" onclick="loopFunc();">
+    <div id="result_div"></div>
+    <script>
+        function loopFunc(){
+            let resultDiv = document.getElementById('result_div');
+            resultDiv.innerHTML = '';
+            for(let i = 0 ; i < 10 ; i++){
+                resultDiv.innerHTML += '<h6>안녕하세요</h6>';
+            }
+        }
+    </script>
+    <h1>중첩 for문</h1>
+    <button onclick="doubleFunc();">
+        동작
+    </button>
+    <script>
+        function doubleFunc(){
+            for(let i = 0 ; i < 2 ; i++){
+                console.log('=== 교실'+(i+1)+' 문열기 ===');
+                for(let j = 0 ; j < 3 ; j++){
+                    console.log('학생 '+(j+1)+"번 입장");
+                }
+                console.log('=== 교실 문닫기 ===');
+            }
+        }
+    </script>
+    <h1>배경추가</h1>
+    <p>
+        배경 추가 버튼 생성 <br>
+        배경 추가 버튼 클릭하면 <br>
+        지금까지 작성한 웹페이지 내부에 h1 요소들 중에서 <br>
+        홀수번째에 있는 h1의 배경을 lightpink로<br>
+        짝수번째에 있는 h1의 배경을 lightblue로 변경<br>
+        * 인덱스 기준 아님 주의 !<br>
+    </p>
+    <input type="button" value="배경추가" onclick="addBack();">
+    <script>
+        function addBack(){
+            let els = document.getElementsByTagName('h1');
+            for(let i = 0 ; i < els.length ; i++){
+                //els[i].style.backgroundColor = 'lightblue';
+                if(i % 2 == 0){
+                    els[i].style.backgroundColor = 'lightpink';
+                } else{
+                    els[i].style.backgroundColor = 'lightblue';
+                }
+            }
+        }
+    </script>   
+    <h1>중첩 반복문 -> break</h1>
+    <button onclick="breakFunc();">
+        기능 동작
+    </button>
+    <script>
+        function breakFunc(){
+            for(let i = 1 ; i <= 3 ; i++){
+                console.log(1);
+
+                for(let j = 1 ; j <= 2 ; j++){
+                    console.log(2);
+                    // 1. 내부 for문 안에 break
+                    break;
+                }
+                console.log(3);
+                // 2. 외부 for문 안에 break
+                break;
+            }
+        }
+    </script>
+    <h1>면도기 공장</h1>
+    <style>
+        img{width: 50px; height: 50px;}
+    </style>
+    <label for="productCnt">생산 개수 : </label>
+    <input type="number" id="productCnt">
+    <input type="button" id="shaving_btn" value="생산">
+    <br><br>
+    <div id="shaving_div"></div>
+    <script>
+        document.querySelector('#shaving_btn').onclick = function(){
+            const num = document.querySelector('#productCnt').value;
+            let imgList='';   
+            for(let i = 0 ; i < num ; i++){
+                imgList +='<img src="../resources/shaving.png" >';
+                for(let j = 0 ; j < 2 ; j++){
+                    imgList +='<img src="../resources/knife.png">';
+                    // break;
+                }
+                imgList +='<br>';
+            }
+            document.getElementById('shaving_div').innerHTML = imgList;
+        }
+    </script>
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
