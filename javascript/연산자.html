@@ -66,7 +66,100 @@
             alert("a : "+a+"\nb : "+b);
         }
     </script>
-    <br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br>
+    <h1>복합 대입 연산자</h1>
+    <button onclick="complexOperator();">
+        연습
+    </button>
+    <script>
+        function complexOperator(){
+            let f = 10;
+            f += 10;
+            console.log("+= : "+f);
+            // f = f + '10'
+            f -= 5;
+            console.log(f);
+            f *= 10;
+            f /= 10;
+            f %= 2;
+        }
+    </script>
+    <h1>do~while문</h1>
+    <button onclick="doWhileFunc();">동작</button>
+    <script>
+        function doWhileFunc(){
+            let count = 10;
+            while(0 < count && count < 10){
+                console.log(count+' : 출력');
+                count--;
+            }
+            // do{
+            //     console.log(count+' : 출력');
+            //     count--;
+            // }while(0 < count && count < 10);
+        }
+    </script>
+    <h1>문자 누적하기</h1>
+    <input id="stack_data" type="text">
+    <button onclick="stackText();">
+        누적
+    </button><br><br>
+    <textarea id="result_area" cols="27" rows="5" 
+    style="resize: none;"></textarea>
+    <script>
+        function stackText(){
+            let textEle = document.getElementById('result_area');
+            // textEle.value = 'test1';
+            let inputEle = document.getElementById('stack_data');
+            // inputEle.innerHTML = 'test2';
+            textEle.value += inputEle.value;
+            inputEle.value = '';
+        }
+    </script>
+    <h1>비교 연산자(1) </h1>
+    <button onclick="comOperator();">
+        ==과 ===
+    </button>
+    <script>
+        function comOperator(){
+            console.log(1 == '1');
+            console.log(1 === '1');
+            
+            console.log('==동등과 일치의 결과가 다른 경우==');
+            console.log(null === undefined);
+            console.log(1 === true);
+            console.log('1'==true);
+        }
+    </script>
+    <h1>동동카페</h1>
+    <style>
+    #worker_reply{
+        width: 300px;
+        height: 30px;
+        background-color: rgba(222, 252, 88, 0.527);
+    }
+    </style>
+    <label for="money">
+        돈 내기
+    </label>
+    <input type="number" id="money"><br>
+    <img src="../resources/human.png"
+    width="100px" height="100px" onclick="answerWorker();">
+    <div id="worker_reply">아메리카노 한잔에 2500원입니다.</div>
+    <script>
+        function answerWorker(){
+            let money = document.getElementById('money').value;
+            let text = (money == 2500) ? '커피 나왔습니다.' : (
+                money > 2500 ? '거스름돈 : '+(money-2500) : '아메리카노는 2500원입니다.'
+            ) ;
+            money = (typeof(money) == 'string') ? Number(money) : money;
+            document.getElementById('worker_reply').innerHTML = text;
+        }
+    </script>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
