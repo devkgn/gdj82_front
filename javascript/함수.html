@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <h1 onclick="changeAll();">장점</h1>
+    <h1 id="darkred" onclick="changeRed();">빨강색</h1>
+    <h1 id="coral" onclick="changeColor(this);">주황색</h1>
+    <h1 id="gold" onclick="changeColor(this);">노랑색</h1>
+    <script>
+        function changeRed(){
+            document.getElementById('darkred').style.color = 'darkred';
+        }
+        function changeColor(ele){
+            document.getElementById(ele.id).style.color = ele.id;
+        }
+        function changeAll(){
+            const els = document.getElementsByTagName('h1');
+            for(let i = 0 ; i < els.length ; i++){
+                els[i].style.color = els[i].id;
+            }
+        }
+    </script>
+</body>
+</html>

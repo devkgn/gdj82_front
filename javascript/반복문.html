@@ -100,6 +100,135 @@
             document.getElementById('shaving_div').innerHTML = imgList;
         }
     </script>
+    <h1>while문</h1>
+    <button onclick="whileFunc();">동작</button>
+    <script>
+        function whileFunc(){
+            // 기본 while문
+            let b = 10;
+            // while( b >= 5){
+            //     console.log(b);
+            //     b--;
+            // }
+
+            // break사용
+            while(true){
+                console.log(b);
+                b--;
+                if(b == 4){
+                    break;
+                }
+            }
+
+            // if문(조건문)과 함께 사용
+            // while(b >= 5){
+            //     if(b %2 == 0){
+            //         console.log('짝수');
+            //     } else{
+            //         console.log('홀수');
+            //     }
+            //     b--;
+            // }
+
+        }
+    </script>
+    <h1>귤농장</h1>
+    <button onclick="getGul();">체험시작</button>
+    <div id="basket_div"></div>
+    <style>
+        figure{display: inline-block;}
+    </style>
+    <script>
+        function getGul(){
+            let basket = 0;
+            let ele = document.getElementById('basket_div');
+            while(true){
+                basket += 10;
+                // 귤 출력
+                // ele.innerHTML += `<figure>
+                //     <figcaption>귤 ${basket}g</figcaption>
+                //     <img src="../resources/gul.png">
+                // </figure>`;
+                ele.innerHTML += '<figure><figcaption>귤 '+basket+'g</figcaption><img src="../resources/gul.png"></figure>';
+                if(basket == 200){
+                    ele.innerHTML+='<h1>체험종료</h1>';
+                    break;
+                }
+            }
+        }
+    </script>
+    <h1>do~while문</h1>
+    <button onclick="doWhileFunc();">
+        연습
+    </button>
+    <script>
+        function doWhileFunc(){
+            let count = 10;
+            // while(0 < count && count < 10){
+            //     console.log(count +" : 출력");
+            //     count--;
+            // }
+            do{
+                console.log(count + ": 출력");
+                count--;
+            }while(0 < count && count < 10);
+        }
+    </script>
+    <h1>10보다 작은 숫자</h1>
+    <input type="number" id="user_num">
+    <button onclick="growPrint();">
+        출력하기
+    </button>
+    <div id="num_print_div"></div>
+    <script>
+        function growPrint(){
+            let userDiv = document.getElementById('num_print_div');
+            userDiv.innerHTML = '';
+            let userNum = document.getElementById('user_num');
+            userNum = userNum.value;
+            userNum = Number(userNum);
+            do{
+                //console.log(userNum);
+                userDiv.innerHTML += `<p>${userNum}</p>`;
+                userNum++;
+                // userNum = userNum +1;
+                // userNum += 1;
+            }while(userNum<= 10);
+        }
+    </script>
+    <h1>continue</h1>
+    <button onclick="continueFunc();">연습</button>
+    <script>
+        function continueFunc(){
+            // for문에서 continue -> 증감식으로 이동
+            for(let i = 1 ; i <= 10 ; i++){
+                // 홀수만 출력
+                // if(i % 2 == 1){
+                //     console.log(i+' : 출력');
+                // }
+                // 짝수일때 skip
+                if(i % 2 == 0){
+                    continue;
+                }
+                console.log(i+" : 출력");
+            }
+
+            // while문에서 continue -> 조건식으로 이동
+            let j = 0; 
+            while(j < 10){
+                j++;
+                if(j % 2 == 0) continue;
+                console.log(j+" : 출력(2)");
+            }
+        }
+    </script>
+
+
+
+
+
+
+
 
 
 
