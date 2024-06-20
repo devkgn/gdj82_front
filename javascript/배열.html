@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <h1>선언</h1>
+    <button onclick="createArray();">
+        연습
+    </button>
+    <script>
+        let createArray = function(){
+            // 리터럴
+            let arr1 = [];
+            let arr2 = ['해','달','별'];
+            // 생성자
+            let arr3 = new Array();
+            let arr4 = new Array(4);
+            let arr5 = new Array('소금','후추','설탕');
+            console.log(arr2);
+            console.log(typeof(arr2));
+            console.log(Array.isArray(arr4));
+        }
+    </script>
+</body>
+</html>
