@@ -66,6 +66,37 @@
             console.log(tempArr);
         }
     </script>
+    <h1>요소 존재여부</h1>
+    <button onclick="findIdxEle();">
+        찾기
+    </button>
+    <script>
+        let findIdxEle = function(){
+            let names = ['철수','영희','길동'];
+            let bool = names.includes('영희');
+            console.log(bool);
+            let idx = names.indexOf('길동');
+            console.log(idx);
+
+            if(names.includes('민수') == false){
+                console.log('Hi!');
+            }
+            if(names.indexOf('영철') != -1){
+                console.log("영철이 있다~");
+            }
+            
+            let target = names.indexOf('미영');
+            if(target != -1){
+                console.log(target);
+            }
+        }
+    </script>
+
+
+
+
+
+
 
     <br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br>
