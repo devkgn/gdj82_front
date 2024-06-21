@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <h1>리터럴 방식 생성</h1>
+    <button onclick="literalFunc();">연습</button>
+    <script>
+        let literalFunc = function(){
+            let person = {};
+            person['name'] = '홍길동';
+            console.log(person);
+
+            let student = {
+                name : '김철수',
+                age : 20,
+                hobby : ['독서','산책'],
+                getString : function(){
+                    return this.name + ' '+this.age;
+                },
+                item : {
+                    name : '만년필',
+                    price : 500000
+                }
+            };
+            console.log(student);
+        }
+    </script>
+    <h1>생성자 방식</h1>
+    <button onclick="createObj();">
+        연습
+    </button>
+    <script>
+        let createObj = function(){
+            let member = new Object();
+            member['number'] = '0101112222';
+            console.log(member);
+        }
+    </script>
+    <h1>생성자 함수</h1>
+    <button onclick="testCon();">연습</button>
+    <script>
+        let testCon = function(){
+            let studentObj = setStudent('홍길동',1,3);
+            console.log(studentObj);
+        }
+        let setStudent = function(name,grade,num){
+            let student = {
+                name : name,
+                grade : grade,
+                classNum : num
+            }
+            return student;
+        }
+    </script>
+    <h1>객체 속성 추가 & 제거</h1>
+    <button onclick="addObjProp();">
+        연습
+    </button>
+    <script>
+        let addObjProp = function(){
+            let objTest = {};
+            objTest['f'+'u'+'n'+'c'] = function(){
+                console.log('거의 다왔다~');
+            }
+            // let target = 'num';
+            objTest.target = 30;
+            objTest.num = 100;
+            console.log(objTest);
+
+            delete(objTest.target);
+            delete(objTest['num']);
+            console.log(objTest);
+        }
+    </script>
+    
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+</body>
+</html>
