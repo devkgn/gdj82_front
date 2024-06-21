@@ -24,5 +24,50 @@
             console.log(Array.isArray(arr4));
         }
     </script>
+    <h1>값 대입</h1>
+    <button onclick="setVal();">연습</button>
+    <script>
+        let setVal = function(){
+            let arr = new Array();
+            arr[0] = 100;
+            arr[1] = '홍길동';
+            arr[2] = true;
+            arr[3] = function(){};
+            arr[5] = [];
+            console.log(arr);
+            console.log(arr[4]);
+        }
+    </script>
+    <h1>배열의 사용</h1>
+    <button onclick="useArr();">
+        연습
+    </button>
+    <div id="arrDiv">
+
+    </div>
+    <script>
+        let useArr = function(){
+            let student = ['tom','json','maria'];
+            console.log(student[0]);
+            for(let i = 0 ; i < student.length ; i++){
+                document.getElementById('arrDiv').innerHTML
+                    += `<p>${student[i]}</p>`;
+            }
+        }
+    </script>
+    <h1>split</h1>
+    <button onclick="changeStrToArr();">
+        문자열 -> 배열
+    </button>
+    <script>
+        let changeStrToArr = function(){
+            let tempStr = 'tom,json,maria';
+            let tempArr = tempStr.split(',');
+            console.log(tempArr);
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
