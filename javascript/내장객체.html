@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장 객체</title>
+</head>
+<body>
+    <h1>String</h1>
+    <h4>toUpperCase(), toLowerCase(), trim()</h4>
+    <select onchange="changeFruit(this.value);">
+        <option value="">선택하기</option>
+        <option value ="apple">apple</option>
+        <option value="banana">banana</option>
+        <option value=" orange ">orange</option>
+        <option value="Peach">peach</option>
+    </select>
+    <script>
+        let changeFruit = function(val){
+            console.log(val);
+            val = val.trim();
+            val = val.toLowerCase();
+            // val = val.toUpperCase();
+            switch(val){
+                case 'apple' : alert('사과!');break;
+                case 'banana' : alert('바나나~');break;
+                case 'orange' : alert('오렌지**');break;
+                case 'peach' :alert('복숭아#');break;
+            }
+        }
+    </script>
+    <h4>length와 charAt의 활용</h4>
+    <input type="text" id="leng_text" 
+    maxlength="10" onkeyup="getLength(this.value);">
+    <span id="text_span">0</span>
+    <span>/10</span>
+    <script>
+        let getLength = function(val){
+            // console.log(val);
+            let leng = val.length;
+            document.getElementById('text_span').innerText = leng;
+            for(let i = 0 ; i < leng ; i++){
+                if(val.charAt(i)== 'b'){
+                    alert('10초 동안 채팅을 쓸 수 없어요.');
+                }
+            }
+        }
+    </script>
+    <h4>indexOf, lastIndexOf, substr</h4>
+    <input type="text" id="address" style="width: 600px;"
+    value="서울 금천구 가산디지털2로 95 3층 구디아카데미 B반">
+    <button onclick="idxTestFunc();">연습</button>
+    <script>
+        let idxTestFunc = function(){
+            let val 
+            = document.getElementById('address').value;
+            console.log(val);
+            let idxGu1 = val.indexOf('구');
+            console.log(idxGu1);
+            let idxGu2 = val.lastIndexOf('구');
+            console.log(idxGu2);
+            let result = val.substring(idxGu1+1,idxGu2);
+            result = result.trim();
+            console.log(result);
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
