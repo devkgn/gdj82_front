@@ -153,10 +153,51 @@
             for(key in person){
                 // name, isStudent, hobby, item... 
                 //console.log(person[key]);
-                let valType = typeof(person[key]);
+                // 꼭 해보기!!
             }
         }
     </script>
+    <h1>this</h1>
+    <button onclick="car.showPrice();">속성</button>
+    <script>
+        // 화살표 함수에서 this는 상위 범주의 this를 바인딩(연결)
+        // console.log("굳이 : "+this);
+        let car = {
+            detail  :{
+                birth : 2024,
+                price : 5000
+            },
+            showPrice : function(){
+                // alert(this);
+                console.log(this);
+                console.log(this.detail);
+                console.log(this.detail.price+"만원 입니다.");
+            }
+        };
+    </script>
+    <button onclick="testGetElement(this);">요소</button>
+    <script>
+        let testGetElement = function(element){
+            console.log(element);
+            console.log(element.innerText);
+        }
+    </script>
+    <h1>객체 배열</h1>
+    <script>
+        let customers = [
+            {
+                name:'이영희',
+                age:61,
+                gender:'여'
+            }
+        ];
+        customers.unshift({name:'김철수',age:25,gender:'남'});
+        customers.push({name:'gildong',age:43,gender:'M'});
+        customers.shift();
+        customers.pop();
+        console.log(customers);
+    </script>
+    
 
 
 
