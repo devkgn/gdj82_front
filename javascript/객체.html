@@ -77,7 +77,7 @@
         }
     </script>
     <h1>객체 호출(1) : 리터럴 속성</h1>
-    <button onclick="basicGetObj();">기본,배열</button>
+    <button onclick="basicGetObj();">기본,배열,객체</button>
     <script>
         let basicGetObj = function(){
             let person = setPerson('김철수',true,['수영','조깅']
@@ -94,6 +94,17 @@
             person['hobby'].forEach(function(ele){
                 console.log("forEach : "+ele);
             });
+            let obj1 = person['item']['price'];
+            let obj2 = person['item'].price;
+            console.log(obj1,obj2);
+            let obj3 = person.item.name;
+            let obj4 = person.item['name'];
+            console.log(obj3,obj4);
+
+            let obj = person['item'];
+            console.log(obj);
+            let price = obj['price'];
+            console.log(price);
         }
     </script>
     <script>
@@ -110,6 +121,47 @@
             return obj;
         }
     </script>
+    <button onclick="getFuncFromObj();">함수 속성에 접근</button>
+    <script>
+        let getFuncFromObj = function(){
+            let employee = {
+                name : '홍길동'
+                ,isStudent : false
+                ,hobby : ['보석십자수','수영']
+                ,callName : function(){
+                    return this.name+'입니다.';
+                }
+                ,testFunc : function(){
+                    if(this.isStudent){
+                        console.log('학생 '+this.name);
+                    } else{
+                        console.log(this.name+'님은 학생이 아닙니다.');
+                    }
+                }
+            };
+            let func1 = employee['callName']();
+            console.log(func1);
+            employee.testFunc();
+        }
+    </script>
+    <h1>반복문</h1>
+    <button onclick="showAllDataObj();">연습</button>
+    <script>
+        let showAllDataObj = () => {
+            let person = setPerson('이영희',true,['영화','독서'],
+                {name:'아이패드',price:200});
+            for(key in person){
+                // name, isStudent, hobby, item... 
+                //console.log(person[key]);
+                let valType = typeof(person[key]);
+            }
+        }
+    </script>
+
+
+
+
+
 
 
     <br><br><br><br><br><br><br><br>
