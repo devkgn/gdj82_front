@@ -76,7 +76,42 @@
             console.log(objTest);
         }
     </script>
-    
+    <h1>객체 호출(1) : 리터럴 속성</h1>
+    <button onclick="basicGetObj();">기본,배열</button>
+    <script>
+        let basicGetObj = function(){
+            let person = setPerson('김철수',true,['수영','조깅']
+                ,{name:'만년필',price:100});
+            console.log(person);
+            let val1 = person.name;
+            let val2 = person['name'];
+            let val3 = person['is'+'Student'];
+            console.log(val1,val2,val3);
+            let arr1 = person['hobby'][0];
+            let arr2 = person.hobby[1];
+            console.log(arr1,arr2);
+            console.log(person.hobby.join('+'));
+            person['hobby'].forEach(function(ele){
+                console.log("forEach : "+ele);
+            });
+        }
+    </script>
+    <script>
+        let setPerson = function(name,bool,arr,item){
+            let obj = {
+                name : name,
+                isStudent : bool,
+                hobby : arr,
+                item : item,
+                callName : function(){
+                    return '내 이름은 '+this.name;
+                }
+            };
+            return obj;
+        }
+    </script>
+
+
     <br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br>
 </body>
