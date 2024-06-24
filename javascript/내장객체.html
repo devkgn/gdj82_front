@@ -64,6 +64,74 @@
             console.log(result);
         }
     </script>
+    <h4>includes, replace</h4>
+    <button onclick="practiceReplace();">
+        연습
+    </button>
+    <script>
+        let practiceReplace = function(){
+            let temp = 'HTML,CSS,Java';
+            if(temp.includes('Java')){
+                temp = temp.replace('Java','JavaScript');
+            }
+            console.log(temp);
+        }
+    </script>
+    <h1>string 연습하기</h1>
+    <p id="stand_str">Lorem ipsum dolor sit amet</p>
+    <form>
+        <input type="button" value="변환" 
+        onclick="changeStr();">
+        <div>
+            <label for="str_1">대문자 만들기</label>
+            <input type="text" id="str_1">
+        </div>
+        <div>
+            <label for="str_2">소문자 만들기</label>
+            <input type="text" id="str_2">
+        </div>
+        <div>
+            <label for="str_3">문장의 길이</label>
+            <input type="text" id="str_3">
+        </div>
+        <div>
+            <label for="str_4">7번째 자리에 있는 알파벳</label>
+            <input type="text" id="str_4">
+        </div>
+        <div>
+            <label for="str_5">알파벳 'p'의 위치</label>
+            <input type="text" id="str_5">
+        </div>
+        <div>
+            <label for="str_6">뒤에서부터 찾았을 때 가장 가까운 'm'의 위치</label>
+            <input type="text" id="str_6">
+        </div>
+        <div>
+            <label for="str_7">12번째 자리부터 5개의 알파벳</label>
+            <input type="text" id="str_7">
+        </div>
+        <div>
+            <label for="str_8">띄어쓰기 기준으로 단어 자르기</label>
+            <textarea rows="5" style="resize: none;" id="str_8"></textarea>
+        </div>
+    </form>
+    <h1>Math</h1>
+    <button onclick="testMathObj();">연습</button>
+    <script>
+        let testMathObj = function(){
+            let str = "";
+            str += "floor : "+Math.floor(3.72)+"\n";
+            str += "ceil : "+Math.ceil(3.14)+"\n";
+            str += "round : "+Math.round(3.14)+"\n";
+            str += 'abs : '+Math.abs(-5)+"\n";
+            str += 'pow : '+Math.pow(3,3);
+            alert(str);
+        }
+    </script>
+
+
+
+
 
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br>
