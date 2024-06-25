@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>봄(BOM)</title>
+</head>
+<body>
+    <h1>screen객체</h1>
+    <button onclick="printScreen();">출력</button>
+    <div id="screen_div"></div>
+    <script>
+        const printScreen = function(){
+            const div = document.getElementById('screen_div');
+            // console.log(screen);
+            for(key in screen){
+                div.innerHTML += key +' : ' +screen[key]+'<br>';
+            }
+        }
+    </script>
+    <h1>navigator 객체</h1>
+    <button onclick="printNavigator();">출력</button>
+    <div id="navigator_div"></div>
+    <script>
+        const printNavigator = function(){
+            // 1. 버튼과 함수 연결
+            // 2. navigator 객체의 모든 속성 navigator_div에 출력
+            const div = document.getElementById('navigator_div');
+            for(key in navigator){
+                div.innerHTML += key + " : " + navigator[key]+'<br>';
+            }
+            console.log(navigator['geolocation']);
+            navigator['geolocation']['getCurrentPosition']((position)=>{
+                // 위도
+                let lo = position.coords.longitude;
+                // 경도
+                let la = position.coords.latitude;  
+                console.log("위도 : "+lo+", 경도 : "+la);
+            });
+        }
+    </script>
+    <h1>history</h1>
+    <button onclick="printHistory();">출력</button>
+    <div id="history_div"></div>
+    <svg onclick="history.forward();" style="width: 50px;fill: aqua;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+    <a href="윈도우.html">윈도우</a>
+    <script>
+        const printHistory = function(){
+            const result = document.getElementById('history_div');
+            for(key in history){
+                result.innerHTML += key+" : "+history[key]+'<br>';
+            }
+        }
+    </script>
+    <p onclick="location.href = 'https://www.google.com';">구글</p>
+    <p onclick="location.assign('https://www.naver.com')">네이버</p>
+    <p onclick="location.replace('https://www.daum.net')">다음</p>
+    <p onclick="location.reload();">새로고침</p>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
