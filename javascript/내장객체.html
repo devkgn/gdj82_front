@@ -128,8 +128,27 @@
             alert(str);
         }
     </script>
-
-
+    <h1>Math.random()</h1>
+    <button onclick="getRndNum();">연습</button>
+    <script>
+        let getRndNum = function(){
+            // 1. 기본 랜덤값 도출
+            let rnd = Math.random();
+            let text = rnd + "->";
+            // 2. 범위(최대값-최소값+1) 곱하기
+            rnd = rnd*5;
+            text += rnd + "->";
+            // 3. 버림
+            rnd = Math.floor(rnd);
+            text += rnd + "->";
+            // 4. 최소값 더하기
+            rnd = rnd + 1;
+            text += rnd;
+            console.log(text);
+            // 정리
+            let result = Math.floor(Math.random()*(5-1+1))+1;
+        }
+    </script>
 
 
 

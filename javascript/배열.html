@@ -180,6 +180,9 @@
     <button onclick="showMemo();">
         출력
     </button>
+    <button onclick="deleteMemo();">
+        완료
+    </button>
     <ul id="result_ul"> 
 
     </ul>
@@ -226,14 +229,27 @@
             // 얕은 복사
             // let tempArr = memoArr;
             // 깊은 복사
+            // let tempArr = new Array();
+            // for(let i = 0 ; i < memoArr.length ; i++){
+            //     tempArr[i] = memoArr[i];
+            // }
+            // console.log(tempArr);
+            // memoArr.shift();
+            // console.log(memoArr);
+            // console.log(tempArr);
+            document.getElementById('result_ul').innerHTML = '';
             let tempArr = new Array();
             for(let i = 0 ; i < memoArr.length ; i++){
                 tempArr[i] = memoArr[i];
             }
-            console.log(tempArr);
+            // 1. 실제 데이터 삭제
             memoArr.shift();
-            console.log(memoArr);
-            console.log(tempArr);
+            // 2. 데이터 없어진 상태 출력
+            let ele = document.getElementById('result_ul');
+            for(let i = 0 ; i <tempArr.length ; i++){
+                ele.innerHTML += '<li class="test">'+tempArr[i]+'</li>';
+            }
+            document.getElementsByTagName('li')[0].style.textDecoration = 'line-through';
         }
     </script>
     <h1>forEach()</h1>
