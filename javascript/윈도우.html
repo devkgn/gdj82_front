@@ -68,6 +68,29 @@
             clearTimeout(timer);
         }
     </script>
+    <h1>setInterval</h1>
+    <button onclick="intervalStart();">시작하기</button>
+    <button onclick="intervalEnd();">종료하기</button>
+    <script>
+        let interTimer;
+        const intervalStart = function(){
+            interTimer = setInterval(function(){
+                document.getElementById('result_div').innerHTML
+                    += '<h1>2초마다 반복</h1>';
+            },2000);
+        }
+        const intervalEnd = function(){
+            clearInterval(interTimer);
+        }
+    </script>
+
+
+
+
+
+
+
+
 
     <br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br>
