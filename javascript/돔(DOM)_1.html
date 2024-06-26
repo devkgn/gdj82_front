@@ -25,5 +25,47 @@
             document.getElementById('tag_div').appendChild(pTag);
         }
     </script>
+    <h1>텍스트 노드 있는 객체 생성</h1>
+    <p>
+        사용자에게 태그와 문구를 입력받은 후,<br>
+        버튼을 클릭하면 test_div를 아이디 속성으로 갖는 div 태그에<br>
+        자식태그로 추가
+    </p>
+    <input type="text" id="tag" placeholder="태그입력">
+    <input type="text" id="text" placeholder="문구입력">
+    <input type="button" value="버튼" onclick="appendTag();">
+    <div id="test_div"></div>
+    <script>
+        const appendTag = function(){
+            const tag = document.getElementById('tag').value;
+            const text = document.getElementById('text').value;
+            const newTag = document.createElement(tag);
+            const newText = document.createTextNode(text);
+            newTag.appendChild(newText);
+            document.querySelector("#test_div").appendChild(newTag);
+        }
+    </script>
+    <h1>텍스트 노드가 없는 태그 생성</h1>
+    <button onclick="createImg();">이미지 추가</button>
+    <div id="img_div">
+        <!-- <img src="../resources/dung.png" alt="뚱이" width="200"> -->
+    </div>
+    <script>
+        const createImg = function(){
+            let imgTag = document.createElement('img');
+            imgTag.setAttribute('src','../resources/dung.png');
+            imgTag.setAttribute('alt','뚱이');
+            imgTag.setAttribute('width','200');
+            document.getElementById('img_div').appendChild(imgTag);
+        }
+    </script>
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
