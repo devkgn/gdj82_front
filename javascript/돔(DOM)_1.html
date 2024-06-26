@@ -85,7 +85,30 @@
     </div>
     <script>
         const createList = function(){
+            // const li1 = document.createElement('li');
+            // const txt1 = document.createTextNode('수박');
+            // li1.appendChild(txt1);
+            // const li2 = document.createElement('li');
+            // const txt2 = document.createTextNode('딸기');
+            // li2.appendChild(txt2);
+            // const li3 = document.createElement('li');
+            // const txt3 = document.createTextNode('체리');
+            // li3.appendChild(txt3);
+            // const ul = document.createElement('ul');
+            // ul.appendChild(li1);
+            // ul.appendChild(li2);
+            // ul.appendChild(li3);
+            // document.getElementById('ul_div').appendChild(ul);
 
+            const arr = ['수박','딸기','체리'];
+            const ul = document.createElement('ul');
+            for(let i = 0 ; i < arr.length ; i++){
+                const li = document.createElement('li');
+                const text = document.createTextNode(arr[i]);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+            document.getElementById('ul_div').appendChild(ul);
         }
     </script>
 
