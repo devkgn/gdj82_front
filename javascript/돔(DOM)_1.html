@@ -59,6 +59,40 @@
             document.getElementById('img_div').appendChild(imgTag);
         }
     </script>
+    <h1>input 만들기</h1>
+    <button onclick="createInput();">생성</button>
+    <script>
+        let count = 1;
+        const createInput = function(){
+            let inputTag = document.createElement('input');
+            inputTag.setAttribute('type','text');
+            inputTag.setAttribute('value','user01');
+            inputTag.setAttribute('id','user_id_'+count);
+            count ++;
+            document.getElementById('img_div').appendChild(inputTag);
+        }
+    </script>
+    <h1>구조가 있는 태그 생성</h1>
+    <h2>기준</h2>
+    <ul>
+        <li>수박</li>
+        <li>딸기</li>
+        <li>체리</li>
+    </ul>
+    <button onclick="createList();">목록태그 생성</button>
+    <div id="ul_div">
+
+    </div>
+    <script>
+        const createList = function(){
+
+        }
+    </script>
+
+
+
+
+
 
 
 
