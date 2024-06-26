@@ -111,14 +111,150 @@
             document.getElementById('ul_div').appendChild(ul);
         }
     </script>
+    <ul id="target_ul">
+        <li>짜장면</li>
+        <li>볶음밥</li>
+        <li>짬뽕</li>
+    </ul>
+    <input name="food" type="text" placeholder="추가할 메뉴 작성">
+    <input type="button" value="추가" onclick="addMenu();">
+    <script>
+        const addMenu = function(){
+            const food = document.getElementsByName('food')[0].value;
+            const li = document.createElement('li');
+            const text = document.createTextNode(food);
+            li.appendChild(text);
+            const ul = document.querySelector('#target_ul');
+            ul.appendChild(li);
+            document.getElementsByName('food')[0].value = "";
+        }
+    </script>
+    <h1>원하는 위치에 태그 생성</h1>
+    <button onclick="insertAdjacentTest();">추가</button>
+    <style>
+        #standard_div{
+            width: 400px; height: 200px;
+            border: 1px red solid;
+        }
+    </style>
+    <div id="standard_div">
+        <h1 id="origin">판단용 h1</h1>
+    </div>
+    <button onclick="changePosition();">위치 바꾸기</button>
+    <script>
+        const changePosition = function(){
+            const ori = document.getElementById('origin');
+            const standDiv = document.getElementById('standard_div');
+            standDiv.insertAdjacentElement('beforebegin',ori);
+        }
+    </script>
+    <script>
+        const insertAdjacentTest = function(){
+            const standDiv = document.getElementById('standard_div');
+            // 1. beforebegin : 같은 레벨로 앞
+            const h3 = document.createElement('h3');
+            const h3Text = document.createTextNode('지정태그 앞!!');
+            h3.appendChild(h3Text);
+            standDiv.insertAdjacentElement('beforebegin',h3);
 
+            // 2. afterend : 같은 레벨로 뒤
+            const h2 = document.createElement('h2');
+            const h2Text = document.createTextNode('지정태그 뒤에요~');
+            h2.appendChild(h2Text);
+            standDiv.insertAdjacentElement('afterend',h2);
 
+            // 3. beforeend : 지정태그 자식(맨 밑)
+            const img1 = document.createElement('img');
+            img1.setAttribute('src','../resources/dung.png');
+            img1.setAttribute('width','50');
+            standDiv.insertAdjacentElement('beforeend',img1);
 
-
-
-
-
-
+            // 4. afterbegin : 지정태그 자식(맨 위)
+            const img2 = document.createElement('img');
+            img2.setAttribute('src','../resources/sponge.png');
+            img2.setAttribute('width','50');
+            standDiv.insertAdjacentElement('afterbegin',img2);
+        }
+    </script>
+    <h1>class 속성 추가, 삭제</h1>
+    <style>
+        .colorful {
+            background-color: yellow;
+            color: blue;
+        }
+    </style>
+    <p id="sample">기준 p태그</p>
+    <button onclick="addClassTest();">추가</button>
+    <button onclick="removeClassTest();">삭제</button>
+    <script>
+        const addClassTest = function(){
+            document.getElementById('sample').classList.add('colorful');
+        }
+        const removeClassTest = function(){
+            document.getElementById('sample').classList.remove('colorful');
+        }
+    </script>
+    <h1>좋아요</h1>
+    <style>
+        #heart{width: 50px;}
+        .red{fill:#dc143c;}
+        .dark{fill:#ddd;}
+    </style>
+    <svg id="heart" class="dark" onclick="fillHeart(this);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
+    </svg>  
+    <script>
+        const fillHeart = function(element){
+            if(element.classList.contains('dark')){
+                element.classList.add('red');
+                element.classList.remove('dark');
+            } else{
+                element.classList.add('dark');
+                element.classList.remove('red');
+            }
+        }
+    </script>
+    <h1>지정태그 주변 태그 접근</h1>
+    <div id="searchTag">
+        <h2>안녕하세요</h2>
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <button id="search_btn">주변 조회</button>
+    </div>
+    <script>
+        document.getElementById('search_btn').onclick = function(){
+            //console.log(this);
+            const target = this.parentElement; //searchTag
+            let childrenEls = target.children; // h2, ul, button
+            for(let i = 0 ; i < childrenEls.length ; i++){
+                if(childrenEls[i].tagName == 'H2'){
+                    childrenEls[i].style.backgroundColor = 'gold';
+                } else if(childrenEls[i].tagName == 'UL'){
+                    const childchild = childrenEls[i].children;
+                    childchild[0].style.backgroundColor 
+                        = 'red';
+                    childchild[1].nextElementSibling.style.backgroundColor
+                        ='orange';
+                    childchild[2].previousElementSibling.style.backgroundColor 
+                        = 'green';
+                }
+            }
+        }
+    </script>
+    <h1>태그 제거</h1>
+    <button id="remove_tag_btn">연습</button>
+    <script>
+        document.getElementById('remove_tag_btn').onclick = function(){
+            const parent = document.getElementById('searchTag');
+            const childEl = parent.children[1];
+            childEl.removeChild(childEl.childNodes[0]);
+            // const lis = childEl.children;
+            // lis[0].remove();
+        }
+    </script>
 
 
 

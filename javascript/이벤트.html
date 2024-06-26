@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+</head>
+<body>
+    <h1>이벤트 설정 방식</h1>
+    <h2>인라인 방식</h2>
+    <p onclick="inlineTest1(this);">디스</p>
+    <p onclick="inlineTest2(event);">이벤트</p>
+    <script>
+        // 함수 호출부에서 사용한 this, event -> 객체
+        // 함수 선언부에서 사용한 element, event -> 매개변수명
+        // 함수 기능부에서 사용한 this -> window 객체
+        const inlineTest1 = function(element){
+            console.log(element);
+            console.log(element.innerText);
+            console.log(this);
+        }
+        const inlineTest2 = function(event){
+            console.log(event);
+            console.log(event.target);
+        }
+    </script>
+    <h2>고전 방식</h2>
+    <p id="old">옛날에...</p>
+    <script>
+        // 매개변수명칭은 상관X, 무조건 event 객체 넘어옴
+        // 함수 기능부에서 사용한 this => 이벤트 발생 요소
+        document.getElementById('old').onclick = function(event){
+            console.log(event.target);
+            console.log(event.target.innerText);
+            console.log(this);
+        }
+    </script>
+    <h2>표준 방식</h2>
+    <p id="standard">내가 규칙이다</p>
+    <script>
+        // 매개변수명칭은 상관X, 무조건 event 객체 넘어옴
+        // 함수 기능부에서 사용한 this => 이벤트 발생 요소
+        document.getElementById('standard').addEventListener('click',function(event){
+            console.log(event.target);
+            console.log(this);
+        });
+    </script>
+    <h1>마우스 이벤트</h1>
+    <style>
+        .event_test{
+            border: green 1px solid;
+            width: 200px; height: 200px;
+        }
+    </style>
+    <div class="event_test" id="mouse_test">
+
+    </div>
+    <script>
+        document.getElementById('mouse_test').addEventListener('mouseenter',function(event){
+            const text = document.createTextNode('들어갔다.');
+            event.target.appendChild(text);
+        });
+        document.getElementById('mouse_test').addEventListener('mouseleave',function(event){
+            const text = document.createTextNode('나갔다.');
+            event.target.appendChild(text);
+        });
+    </script>       
+    <h1>키 이벤트</h1>
+    <textarea id="text_write"></textarea>
+    <script>
+        document.querySelector('#text_write').onkeydown = function(event){
+            // 모든 키
+            // console.log('keydown : '+event.target.value);
+        }
+        document.querySelector('#text_write').onkeypress = function(event){
+            // 입력가능한 키
+            // console.log('keypress : '+event.target.value);
+        }
+        document.querySelector('#text_write').onkeyup = function(event){
+            // console.log('keyup : '+event.target.value);
+            // console.log(event);
+            if(event.key == 'CapsLock'){
+                alert('대문자로 변환하려구요?');
+            }
+            if(event.key == 'Backspace'){
+                let img = document.createElement('img');
+                img.setAttribute('src','../resources/dung.png');
+                img.setAttribute('width','100');
+                event.target.insertAdjacentElement('afterend',img);
+            }
+        }
+    </script>
+    <br>
+    <input type="text" id="text">
+    <input type="button" value="검색" id="search"
+    onclick="alert('말로만 검색중...');">
+    <script>
+        document.getElementById('text').onkeyup = function(event){
+            if(event.key == 'Enter'){
+                document.getElementById('search').click();
+            }
+        }
+    </script>
+    <h1>input 태그 관련 이벤트</h1>
+    <input type="text" id="input_event" value="기본값">
+    <script>
+        document.getElementById('input_event').onfocus = function(event){
+            event.target.style.backgroundColor = 'crimson';
+        }
+        document.getElementById('input_event').onblur = function(event){
+            event.target.style.backgroundColor = 'white';
+        }
+    </script>
+    <h1>기본 이벤트 차단</h1>
+    <a id="hyper" href="https://www.naver.com">네이버</a>
+    <script>
+        document.getElementById('hyper').addEventListener('click',function(event){
+            event.preventDefault();
+            // console.log('나는 네이버로 가지 않을꺼에요!!');
+            event.target.style.backgroundColor = 'gold';
+            location.href = 'https://www.naver.com';
+        });
+    </script>
+    <form id="testFrm">
+        <input type="text" name="user_data">
+        <input type="submit" value="제출하기">
+    </form>
+    <script>
+        document.getElementById('testFrm').onsubmit = function(event){
+            console.log(event.target);
+            // const val = event.target.previousElementSibling.value;
+            const val = document.getElementsByName('user_data')[0].value; 
+            console.log(val);
+            if(val.length < 4){
+                alert('4글자 이상 쓰시오.');
+                return false;
+            } else{
+                return true;
+            }
+
+        }
+    </script>
+    <h3>유효성 검사</h3>
+    <style>
+        .pw_vali{display: none;}
+        .pw_vali.pass{display:inline;color: green;}
+        .pw_vali.fail{display: inline;color: red;}
+    </style>   
+    <form id="joinForm">
+        <input type="password" placeholder="비밀번호" name="user_pw"><br>
+        <input type="password" placeholder="비밀번호 확인" name="user_pw_check"><br>
+        <span class="pw_vali"></span>
+    </form>
+    <script>
+        document.getElementsByName('user_pw_check')[0].addEventListener('blur',function(event){
+    
+        });
+    </script>
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
