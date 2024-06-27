@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규(표현)식</title>
+</head>
+<body>
+    <h1>정규표현식 선언 </h1>
+    <button onclick="useRegex();">연습</button>
+    <div id="result_div">
+
+    </div>
+    <script>
+        const useRegex = function(){
+            let regExp1 = /script/;
+            let regExp2 = new RegExp(/java/);
+
+            const str1 = 'javascript jquery ajax';
+            const element = document.getElementById('result_div');
+
+            element.innerHTML += "1 : "+regExp1.test(str1)+'<br>';
+            element.innerHTML += "2 : "+regExp1.exec(str1)+'<br>';
+
+            element.innerHTML += "3 : "+str1.match(regExp1)+'<br>';
+            element.innerHTML += "4 : "+str1.search(regExp1)+'<br>';
+            element.innerHTML += "5 : "+str1.replace(regExp1,'스파게티')+'<br>';
+            element.innerHTML += "6 : "+str1.split(regExp1);
+
+            let arr = str1.split(regExp1);
+            for(let i = 0 ; i < arr.length ; i++){
+                console.log(arr[i]);
+            }
+        }
+    </script>
+    <h1>메타문자</h1>
+    <button onclick="metaLetterFunc();">연습</button>
+    <div id="meta_div">
+
+    </div>
+    <script>
+        const metaLetterFunc = function(){
+            let str = "javascript jquery ajax";
+            const ele = document.getElementById('meta_div');
+
+            
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
