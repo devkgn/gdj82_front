@@ -122,6 +122,146 @@
             })
         });
     </script>
+    <h1>속성 선택자</h1>
+    <input type="text" placeholder="테스트1">
+    <input type="text" placeholder="테스트2">
+    <script>
+        const propTag = document.querySelectorAll('input[type=text]');
+        for(let i = 0 ; i < propTag.length ; i++){
+            propTag[i].onkeyup = function(){
+                this.style.color = 'yellow';
+                this.style.fontWeight = 'bolder';
+            }
+        }
+        $(document).ready(function(){
+            $('input[type=text]').on('keyup',function(){
+                $(this).css('backgroundColor','purple');
+            })
+        })
+    </script>
+    <h1>상태 선택자</h1>
+    <input onclick="countChecked();" type="checkbox" name="cake" value="straw" id="straw">
+    <label for="straw">딸기</label>
+    <input onclick="countChecked();" type="checkbox" name="cake" value="choco" id="choco">
+    <label for="choco">초코</label>
+    <div id="check_div">
+
+    </div>
+    <script>
+        const countChecked = function(){
+            let leng = document.getElementsByName('cake').length;
+            leng = document.querySelectorAll('input[name=cake]:checked').length;
+            document.getElementById('check_div').innerHTML = leng+'개';
+        }
+
+        $(document).ready(function(){
+            $('input[name=cake]').change(function(){
+                const leng = $('input[name=cake]:checked').length;
+                $('#check_div').html(leng+'개');
+            });
+        });
+    </script>
+    <select name="menu">
+        <option value="1">짜장</option>
+        <option value="2">짬뽕</option>
+    </select>
+    <button onclick="orderLunch();">주문하기</button>
+    <script>
+        const orderLunch = function(){
+            const element = document.getElementsByName('menu')[0];
+            let val = element.options[element.selectedIndex].value;
+            console.log(val);
+
+            val = $('select[name=menu] option:selected').val();
+            console.log(val);
+        }
+    </script>
+    <button>활성버튼</button>
+    <button disabled>비활성버튼</button>
+    <script>
+        $(function(){
+            $('button:enabled').css('backgroundColor','yellowgreen');
+            $('button:disabled').css('backgroundColor','orangered');
+        })
+    </script>
+    <h1>구조 선택자</h1>
+    <table id="table_style" border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+    </table>
+    <button onclick="changeTableBack();">배경</button>
+    <button onclick="changeTableFont();">폰트</button>
+    <button onclick="changeTableDesign();">디자인</button>
+    <script>
+        const changeTableBack = function(){
+            $('#table_style>tbody>tr:first').css('backgroundColor','#fcba03');
+            $('#table_style>tbody>tr:last').css('backgroundColor','#4287f5');
+        }
+        const changeTableFont = function(){
+            $('#table_style>tbody>tr>td:odd').css('fontSize','2rem');
+            $('#table_style>tbody>tr>td:even').css('color','#fc5e03');
+            $('#table_style>tbody>tr>td:eq(2)').css('backgroundColor','red');
+        }
+        const changeTableDesign = function(){
+            $('#table_style td:lt(2)').css('border','3px solid red');
+            $('#table_style td:gt(2)').css('border','3px dotted green');
+        }
+    </script>
+    <h2>confirm 사용하기</h2>
+    <button id="confirm_btn" onclick="checkYesOrNo();">실행하기</button>
+    <script>
+        $(function(){
+            $('#confirm_btn').on('click',function(){
+                // 기능구현
+                let check = confirm('개인정보활용에 동의하시겠습니까?');
+                if(check){
+                    alert('다음 단계로 진행합니다.');
+                } else{
+                    alert('개인정보 활용 동의없이 회원가입을 진행할 수 없습니다.');
+                }
+            })
+        })
+
+        const checkYesOrNo = function(){
+            let check = confirm('개인정보활용에 동의하시겠습니까?');
+            if(check){
+                alert('다음 단계로 진행합니다.');
+            } else{
+                alert('개인정보 활용 동의없이 회원가입을 진행할 수 없습니다.');
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>

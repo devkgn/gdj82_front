@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 탐색</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1 onclick="filterPractice();">필터링 메소드</h1>
+    <h4>1</h4>
+    <h4 class="sample">2</h4>
+    <h4 class="sample">3</h4>
+    <h4>4</h4>
+    <script>
+        const filterPractice = function(){
+            $('h4').first().css('border','1px solid red');
+            $('h4').filter('.sample').css('color','gold');
+            // $('h4.sample')
+            $('h4').filter(function(index,item){
+                return $(item).text().includes('2');
+            }).css('backgroundColor','hotpink');
+            $('h4').not('.sample').css('textDecoration','line-through');
+        }
+    </script>
+    <h1>Ancestors 메소드</h1>
+    <div id="parentcontainer">
+        <div>
+            div
+            <ul>
+                <li>
+                    <span>span2</span>
+                </li>
+                <li>
+                    <img src="../resources/dung.png" width="100"
+                    style="border:4px dotted pink;">
+                </li>
+            </ul>
+            <span>span1</span>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('#parentcontainer').prev().on('click',function(){
+                $('span').parent().css('border','1px solid red');
+            });
+        })
+    </script>
+</body>
+</html>
