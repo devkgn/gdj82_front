@@ -88,6 +88,72 @@
             $('h2').prevUntil('p').css('fontSize','3em');
         });
     </script>
+    <div id="prompt_div">
+        <h2>promt로 입력받기</h2>
+        <button>실행</button>
+        <div></div>
+    </div>
+    <script>
+        $(function(){
+            // $('#prompt_div > button')
+            // $('#prompt_div').children('button')
+            // $('div').eq(3).children('button')
+            $('div').eq(3).children('button').on('click',function(){
+                const data = prompt('메시지를 입력하세요.');
+                //$(this).next().html(data);
+                $(this).parent().children('div').html(data);
+            });
+        });
+    </script>
+    <h1>each()</h1>
+    <button onclick="arrFunc();">배열에 접근</button>
+    <button onclick="objFunc();">객체에 접근</button>
+    <script>
+        const arrFunc = function(){
+            const arr = ['나비야','이리','날아','오너라'];
+            $.each(arr,function(index,item){
+                console.log(index + ' : '+item);
+            });
+        }
+        const objFunc = function(){
+            const student = {
+                name : '김철수',
+                age : 20,
+                addr : '서울시'
+            };
+            $.each(student,function(key,value){
+                console.log(key+'는(은) '+value+'입니다.');
+            });
+        }
+    </script>
+    <h1>DOM 객체에 접근</h1>
+    <ul class="ul_container">
+        <li>사과</li>
+        <li>토마토</li>
+        <li>바나나</li>
+    </ul>
+    <button>변경</button>
+    <script>
+        $(document).ready(function(){
+            $('.ul_container').next('button').on('click',function(){
+                $(this).css('backgroundColor','gold');
+
+                $('.ul_container > li').each(function(index,item){
+                    $(this).css('textDecoration','line-through');
+                    if(index % 2 == 0){
+                        $(item).css('color','green');
+                    }
+                });
+
+                $(this).css('color','red');
+            })
+        })
+    </script>
+
+
+
+
+
 
 
     <br><br><br><br><br><br><br><br><br><br><br><br>

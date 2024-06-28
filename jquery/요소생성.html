@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소생성</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script> 
+</head>
+<body>
+    <h1>html()</h1>
+    <div id="html_div">
+        <a href="#">구디</a>
+    </div>
+    <button onclick="htmlPractice();">html,text 연습</button>
+    <script>
+        const htmlPractice = function(){
+            // const divData = $('#html_div').html();
+            // console.log(divData);
+            // $('#html_div').html('<p>바꾼것!!</p>');
+
+            const text = $('#html_div').text();
+            console.log(text);
+            $('#html_div > a').text('변경');
+            
+        }
+    </script>
+</body>
+</html>
