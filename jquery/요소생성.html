@@ -50,5 +50,79 @@
             element.prepend($('<p>').text('테스트'));
         }
     </script>
+    <h1>태그 이동</h1>
+    <style>
+        #move_div{border : 2px solid blue;}
+    </style>
+    <div id="move_div">
+        <p>p태그</p>
+        <h4>h4태그</h4>
+        <h2>h2태그</h2>
+    </div>
+    <button onclick="changePosition();">이동</button>
+    <script>
+        const changePosition = function(){
+            // $('#child_container').append($('#move_div>*:last'));
+            // $('#move_div').prepend($('#move_div>*:last'));
+            let div = $('#move_div');
+            let target = $('#move_div>*:last');
+            div.prepend(target);
+        }
+    </script>
+    <h1>복제하기</h1>
+    <button onclick="cloneTest();">연습</button>
+    <div id="clone_div">
+        <div id="item1" class="item">
+            <span>안녕하십니까?</span>
+        </div>
+    </div>
+    <script>
+        let num = 2;
+        $(document).ready(function(){
+            $('.item').click(function(){
+                alert('테스트 1');
+            });
+        })
+        const cloneTest = function(){
+            const div = $('#clone_div > #item1').clone(true).attr('id','item'+num++);
+            $('#clone_div').append(div);
+        }
+    </script>
+    <h1>요소 제거</h1>
+    <div id="remove_div">
+        <div id="item2">
+            <span>Hi Hello Hola</span>
+        </div>
+        <h1>테스트</h1>
+    </div>
+    <button id="remove_btn">remove</button>
+    <button id="detach_btn">detach</button>
+    <button id="empty_btn">empty</button>
+    <div id="remove_result">
+
+    </div>
+    <script>
+        $(function(){
+            $('#item2').click(function(){
+                alert("이벤트 핸들러 테스트");
+            });
+            $('#remove_btn').click(function(){
+                const cutEl = $('#item2').remove();
+                $('#remove_result').append(cutEl);
+            });
+            $('#detach_btn').click(function(){
+                const cutEl = $('#item2').detach();
+                $('#remove_result').append(cutEl);
+            });
+            $('#empty_btn').click(function(){
+                $("#remove_div").empty();
+            });
+        });
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
 </body>
 </html>
