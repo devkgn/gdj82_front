@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>요소 탐색</title>
-    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+    crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="jquery-3.7.1.js"></script> -->
 </head>
 <body>
     <h1 onclick="filterPractice();">필터링 메소드</h1>
@@ -43,8 +46,13 @@
         $(function(){
             $('#parentcontainer').prev().on('click',function(){
                 $('span').parent().css('border','1px solid red');
+                $('li').parent().css('border','2px dashed blue');
+                $('li').parents('div#parentcontainer').css('border','3px dotted green');
+                $('span').parentsUntil('div').css('color','red');
             });
         })
     </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
