@@ -42,8 +42,15 @@
             <span>span1</span>
         </div>
     </div>
+    <h1>Descendant 메소드</h1>
     <script>
         $(function(){
+            $('#parentcontainer').next().on('click',function(){
+                $('#parentcontainer').children().css('border','2px solid pink');
+                $('#parentcontainer').children().children('span').css('color','aqua');
+                $('#parentcontainer').find('img').css('borderRadius','50px');
+            });
+
             $('#parentcontainer').prev().on('click',function(){
                 $('span').parent().css('border','1px solid red');
                 $('li').parent().css('border','2px dashed blue');
@@ -52,6 +59,37 @@
             });
         })
     </script>
+    <h1>SideWay 메소드</h1>
+    <div id="brother_container">
+        <p>p1</p>
+        <h1>h1</h1>
+        <h2>안녕하세요</h2>
+        <h3>h3</h3>
+        <p>p2</p>
+    </div>
+    <script>
+        $(document).ready(function(){
+            console.log($('#brother_container > *').is('h4'));
+
+            $('#brother_container > *').click(function(){
+                if($(this).is('h2')){
+                    alert($(this).text());
+                }
+            });
+
+            $('h3').siblings('p').css('border','3px solid green');
+
+            $('h2').next().css('color','blue');
+            $('h2').nextAll().css('backgroundColor','gold');
+            $('h2').nextUntil('p').css('textDecoration','line-through');
+
+            $('h2').prev().css('backgroundColor','hotpink');
+            $('h2').prevAll().css('color','orange');
+            $('h2').prevUntil('p').css('fontSize','3em');
+        });
+    </script>
+
+
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
