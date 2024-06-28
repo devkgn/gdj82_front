@@ -21,7 +21,33 @@
             const text = $('#html_div').text();
             console.log(text);
             $('#html_div > a').text('변경');
-            
+
+        }
+    </script>
+    <h1>자식, 형제 태그 추가</h1>
+    <style>
+        #child_container{border: 2px solid red;}
+    </style>
+    <button onclick="addChild();">자식 추가</button>
+    <button onclick="addSibling();">형제 추가</button>
+    <div id="child_container">
+        <h3>제목3번</h3>
+    </div>
+    <script>
+        let count = 1;
+        const  addSibling = function(){
+            const element = $('#child_container');
+            const h4 = $('<h4>').text('큰형'+count);
+            element.before(h4);
+            count++;
+            const img = $('<img>').attr('src','../resources/dung.png').attr('width','100');
+            element.after(img);
+        }
+        const addChild = () =>{
+            const element = $('#child_container');
+            const pTag = $('<p>').text(new Date());
+            element.append(pTag);
+            element.prepend($('<p>').text('테스트'));
         }
     </script>
 </body>
