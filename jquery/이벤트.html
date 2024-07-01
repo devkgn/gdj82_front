@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script> 
+
+</head>
+<body>
+    <h1>on메소드</h1>
+    <div id="on_div">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <h3>이벤트</h3>
+    </div>
+    <script>
+        $(function(){
+            // $('#on_div > ul > li').on('mouseenter',function(){
+            //     console.log($(this).text());
+            // });
+
+            $('#on_div > ul > li').mouseenter(function(){
+                console.log($(this).text());
+            });
+
+            $('#on_div > h3').on({
+                'mouseenter':function(){$(this).css('color','red')},
+                'mouseleave':function(){$(this).css('color','black')}
+            });
+        })
+    </script>
+    <h1>off 메소드</h1> 
+    <button class="off_btn">
+        버튼
+    </button>
+    <script>
+        $(function(){
+            // let count = 0;
+            // $('.off_btn').on('click',function(){
+            //     if(count++ < 3){
+            //         alert('버튼 클릭');
+            //     } else{
+            //         $(this).off('click');
+            //     }
+            // });
+            $('.off_btn').one('click',function(){
+                alert('일회용!!');
+            });
+        });
+    </script>
+    <h1>hover이용하기</h1>    
+    <h3 id="target">BEFORE</h3>
+    <script>
+        $(function(){
+            $('h3#target').hover(
+                function(){
+                    $(this).text('====AFTER====');
+                },
+                function(){
+                    $(this).text('BEFORE');
+                }
+            );
+        })
+    </script>
+    <h1>trigger</h1>
+    <label>
+        비밀번호
+        <input type="password" name="user_pw">
+    </label><br>
+    <label>
+        비밀번호 확인
+        <input type="password" name="user_pw_check">
+    </label><br>
+    <span id="result"></span>
+    <script>
+        $(function(){
+            $('input[name=user_pw_check]').on('keyup',function(){
+                let pwCheck = $(this).val();
+                let pw = $('input[name=user_pw]').val();
+                let result = $('#result');
+                if(pwCheck == pw){
+                    result.text('일치합니다.');
+                } else{
+                    result.text('불일치!!');
+                }
+            });
+
+            $('input[name=user_pw]').on('keyup',function(){
+                $('input[name=user_pw_check]').trigger('keyup');
+            });
+        })
+    </script>
+    <h1>effect : 요소에 애니메이션 효과</h1>
+    <button onclick="$('#container>div').slideUp(500);">업</button>
+    <button onclick="$('#container>div').slideDown(500);">다운</button>
+    <button onclick="$('#container > div').slideToggle(500);">토글</button>
+    <div id="container" style="background-color: cornflowerblue;">
+        <div>첫번째 메뉴</div>
+        <div>2번 메뉴</div>
+    </div>
+    <h1>fade함수</h1>
+    <button onclick="$('img').fadeIn(1000);">페이드인</button>
+    <button onclick="$('img').fadeOut(1000);">페이드아웃</button>
+    <button onclick="$('img').fadeToggle(1000);">페이드토글</button>
+    <img src="../resources/dung.png" alt="뚱이" width="100">
+    <h1>show,hide,toggle</h1>
+    <button onclick="$('#targetH1').show(1000);">show</button>
+    <button onclick="$('#targetH1').hide(1000);">hide</button>
+    <h1 id="targetH1">이제 jQuery 끝!</h1>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
