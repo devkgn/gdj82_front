@@ -37,17 +37,70 @@
     <a class="btn-3d">버튼</a>
     <script>
         $(function(){
-            let bool = true;
+            // let bool = true;
             $('.btn-3d').click(function(){
-                if(bool){
-                    $(this).addClass('active');
-                    bool = false;
-                }else{
-                    $(this).removeClass('active');
-                    bool = true;
-                }
+                // if(bool){
+                //     $(this).addClass('active');
+                //     bool = false;
+                // }else{
+                //     $(this).removeClass('active');
+                //     bool = true;
+                // }
+                $(this).toggleClass('active');
             });
         });
     </script>
+    <h1>값 설정</h1>
+    <label for="user_id">아이디</label>
+    <input type="text" id="user_id">
+    <button onclick="getSetValue();">연습</button>
+    <script>
+        const getSetValue = () =>{
+            console.log($('#user_id').val());
+            $('#user_id').val('user03');
+        }
+    </script>
+    <h1>속성 설정(1)</h1>
+    <button onclick="practiceAttr();">연습</button>
+    <div id="attr_div">
+        <img src="../resources/sponge.png" alt="스폰지" width="200">
+        <input type="text" name="img_text">
+    </div>
+    <script>
+        const practiceAttr = function(){
+            const src = $('#attr_div > img').attr('src');
+            console.log(src);
+            //$('#attr_div > img').attr('src','../resources/dung.png');
+            //$('#attr_div > img').attr({'width':'100','height':'100'});
+            const img = $('<img>').attr({
+                'src' : '../resources/jing.png',
+                'width' : '100',
+                'alt' : '징징이'
+            });
+            $('#attr_div').append(img);
+            $('#attr_div > img').removeAttr('src');
+        }
+    </script>
+    <h1>속성 설정(2)</h1>
+    <input type="checkbox" name="lang" value="html">html<br>
+    <input type="checkbox" name="lang" value="css">css<br>
+    <input type="checkbox" name="lang" value="javascript">js<br>
+    <button onclick="studyProp();">
+        연습
+    </button>
+    <script>
+        const studyProp = function(){
+            const attr = $('input[name=lang]:first').attr('checked');
+            const prop = $('input[name=lang]:first').prop('checked');
+            console.log(attr,prop);
+            $('input[name=lang]:first').prop('checked',!prop);
+        }
+    </script>
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
